@@ -4,7 +4,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'JetDevsHomeWork' do
-  pod 'RxSwift', '~> 5.1.0'
+  pod 'RxSwift'
   pod 'SwiftLint'
   pod 'Kingfisher'
   pod 'SnapKit'

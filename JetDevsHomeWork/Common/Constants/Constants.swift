@@ -11,7 +11,6 @@ let screenFrame: CGRect = UIScreen.main.bounds
 let screenWidth = screenFrame.size.width
 let screenHeight = screenFrame.size.height
 
-
 let isIPhoneX = (screenWidth >= 375.0 && screenHeight >= 812.0) ? true : false
 let isIPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ? true : false
 
