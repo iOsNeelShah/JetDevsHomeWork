@@ -10,6 +10,7 @@ import RxSwift
 
 class LoginViewModel {
     
+    private let loginService: LoginServiceProtocol
     private let disposeBag = DisposeBag()
     
     // Inputs
@@ -17,10 +18,14 @@ class LoginViewModel {
     let password = BehaviorSubject<String>(value: "")
     
     // Outputs
+    let isLoading = BehaviorSubject<Bool>(value: false)
+    let loginSuccess = PublishSubject<Void>()
+    let loginError = PublishSubject<String>()
     let isEmailValid = BehaviorSubject<Bool>(value: false)
     let isPasswordValid = BehaviorSubject<Bool>(value: false)
     
-    init() {
+    init(loginService: LoginServiceProtocol) {
+        self.loginService = loginService
         bindingValidation()
     }
     
@@ -40,6 +45,33 @@ class LoginViewModel {
                 self?.isPasswordValid.onNext(isValid)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func login() {
+        guard let email = try? self.email.value(), let password = try? self.password.value() else {
+            // Handle case where values are not available
+            self.loginError.onNext(ValidationMessages.invalidEmailPassword)
+            return
+        }
+        self.isLoading.onNext(true)
+        return self.loginService.login(loginRequest:
+                                        LoginRequest(email: email,
+                                                     password: password))
+        .subscribe(onNext: { [weak self] response in
+            self?.isLoading.onNext(false)
+            if response.result == 1 {
+                self?.loginSuccess.onNext(())
+            } else {
+                self?.loginError.onNext(response.errorMessage)
+            }
+        }, onError: { error in
+            self.isLoading.onNext(false)
+            if let loginError = error as? CustomError {
+                self.loginError.onNext(loginError.localizedDescription)
+            }
+            
+        })
+        .disposed(by: disposeBag)
     }
     
     // Function to validate email and password

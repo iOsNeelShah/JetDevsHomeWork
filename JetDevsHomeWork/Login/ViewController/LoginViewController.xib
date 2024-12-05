@@ -16,8 +16,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="JetDevsHomeWork" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogin" destination="z18-EM-AL4" id="hvR-uZ-uHU"/>
                 <outlet property="loadingIndicator" destination="bbD-GT-wJF" id="Vgp-jx-yLW"/>
-                <outlet property="loginButton" destination="z18-EM-AL4" id="hvR-uZ-uHU"/>
                 <outlet property="txtEmail" destination="wYt-XZ-p4I" id="vHo-gW-aQf"/>
                 <outlet property="txtPassword" destination="GCx-tl-Wk8" id="dsX-dz-S2A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

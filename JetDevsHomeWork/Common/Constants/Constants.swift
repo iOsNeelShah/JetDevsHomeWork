@@ -24,9 +24,25 @@ let tabBarTrueHeight: CGFloat = 49.0
 
 let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
 
+struct AppURLs {
+    
+    static let mainUrl = "https://jetdevs.wiremockapi.cloud/"
+    
+    static let login = mainUrl + "login"
+}
+
 struct ValidationMessages {
     
     static let invalidEmailPassword = "Please enter valid email or password."
     static let invalidEmail = "Please enter valid email."
     static let invalidPassword = "Password must be at least 6 characters long."
+}
+
+struct APIErrorMessages {
+    
+    static let invalidUrl = "The URL is invalid."
+    static let serverError = "Server error, Please try again."
+    static let somethingWrongError  = "Something went wrong, Please try again."
+    static let invalidCredential = "Invalid credentials."
+    static let unexpectedError = "Unexpected error occurred, Please try again."
 }
