@@ -8,6 +8,8 @@ target 'JetDevsHomeWork' do
   pod 'SwiftLint'
   pod 'Kingfisher'
   pod 'SnapKit'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'IQKeyboardManagerSwift'
 
   target 'JetDevsHomeWorkTests' do
     inherit! :search_paths
