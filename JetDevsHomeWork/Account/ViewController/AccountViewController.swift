@@ -25,7 +25,8 @@ class AccountViewController: UIViewController {
     }
 	
 	@IBAction func loginButtonTap(_ sender: UIButton) {
-        let loginViewController = LoginViewController()
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
         loginViewController.modalPresentationStyle = .fullScreen
         self.present(loginViewController, animated: true)
 	}

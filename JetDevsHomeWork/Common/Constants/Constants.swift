@@ -21,3 +21,12 @@ let statusBarNavigationBarHeight: CGFloat = isIPhoneX ? 88.0 : 64.0
 let tabbarSafeBottomMargin: CGFloat = isIPhoneX ? 34.0 : 0.0
 let tabBarHeight: CGFloat = isIPhoneX ? (tabBarTrueHeight+34.0) : tabBarTrueHeight
 let tabBarTrueHeight: CGFloat = 49.0
+
+let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+
+struct ValidationMessages {
+    
+    static let invalidEmailPassword = "Please enter valid email or password."
+    static let invalidEmail = "Please enter valid email."
+    static let invalidPassword = "Password must be at least 6 characters long."
+}
