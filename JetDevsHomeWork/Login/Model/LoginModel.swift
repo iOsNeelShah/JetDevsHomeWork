@@ -37,7 +37,7 @@ struct UserData: Decodable {
     }
 }
 
-struct User: Decodable {
+struct User: Codable, Equatable {
     
     let userId: Int
     let userName: String

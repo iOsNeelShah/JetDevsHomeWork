@@ -13,6 +13,9 @@
 		18F1F6F72D01DB31007314F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F6F52D01DB31007314F1 /* LoginViewController.swift */; };
 		18F1F6F82D01DB31007314F1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F1F6F62D01DB31007314F1 /* LoginViewController.xib */; };
 		18F1F6FB2D01F132007314F1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F6F92D01F132007314F1 /* UIColor+Extension.swift */; };
+		18F1F7032D027664007314F1 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F7022D027664007314F1 /* AccountViewModel.swift */; };
+		18F1F7062D0276A7007314F1 /* UserDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F7052D0276A7007314F1 /* UserDataStorage.swift */; };
+		18F1F7092D0277BB007314F1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F7082D0277BB007314F1 /* String+Extension.swift */; };
 		4E677BCE272B827F006E325E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E677BCD272B827F006E325E /* AppDelegate.swift */; };
 		4E677BD5272B827F006E325E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E677BD3272B827F006E325E /* Main.storyboard */; };
 		4E677BD7272B8282006E325E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E677BD6272B8282006E325E /* Assets.xcassets */; };
@@ -74,6 +77,9 @@
 		18F1F6F52D01DB31007314F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18F1F6F62D01DB31007314F1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		18F1F6F92D01F132007314F1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		18F1F7022D027664007314F1 /* AccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		18F1F7052D0276A7007314F1 /* UserDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStorage.swift; sourceTree = "<group>"; };
+		18F1F7082D0277BB007314F1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		44E25A9D32B01E7986F6EE72 /* Pods-JetDevsHomeWork-JetDevsHomeWorkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JetDevsHomeWork-JetDevsHomeWorkUITests.debug.xcconfig"; path = "Target Support Files/Pods-JetDevsHomeWork-JetDevsHomeWorkUITests/Pods-JetDevsHomeWork-JetDevsHomeWorkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A78362750DC2D3CF1FB868C /* Pods-JetDevsHomeWorkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JetDevsHomeWorkTests.debug.xcconfig"; path = "Target Support Files/Pods-JetDevsHomeWorkTests/Pods-JetDevsHomeWorkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E677BCA272B827F006E325E /* JetDevsHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JetDevsHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +170,22 @@
 				18F1F6F92D01F132007314F1 /* UIColor+Extension.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		18F1F7042D027691007314F1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18F1F7052D0276A7007314F1 /* UserDataStorage.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		18F1F7072D027798007314F1 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				18F1F7082D0277BB007314F1 /* String+Extension.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		4E677BC1272B827F006E325E = {
@@ -287,6 +309,7 @@
 		4E677C06272B83D5006E325E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				18F1F7022D027664007314F1 /* AccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -328,6 +351,7 @@
 		4E677C12272B860A006E325E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18F1F7042D027691007314F1 /* Helper */,
 				4E677C4927323092006E325E /* Extension */,
 				4E677C13272B862C006E325E /* Constants */,
 			);
@@ -370,6 +394,7 @@
 		4E677C4927323092006E325E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				18F1F7072D027798007314F1 /* String */,
 				18F1F6FA2D01F132007314F1 /* UIColor */,
 				4E677C4A273230A4006E325E /* UIFont */,
 			);
@@ -687,13 +712,16 @@
 				4E677BFF272B8319006E325E /* BaseTabBarController.swift in Sources */,
 				18F1F6F22D01DB0C007314F1 /* LoginAPIService.swift in Sources */,
 				4E677C10272B8455006E325E /* AccountViewController.swift in Sources */,
+				18F1F7062D0276A7007314F1 /* UserDataStorage.swift in Sources */,
 				18F1F6FB2D01F132007314F1 /* UIColor+Extension.swift in Sources */,
 				4E677C4C273230E5006E325E /* UIFont+JetDevs.swift in Sources */,
 				4E677C15272B8650006E325E /* Constants.swift in Sources */,
 				18F1F6F02D01DAF5007314F1 /* LoginModel.swift in Sources */,
+				18F1F7092D0277BB007314F1 /* String+Extension.swift in Sources */,
 				4E677BCE272B827F006E325E /* AppDelegate.swift in Sources */,
 				18F1F6F42D01DB1C007314F1 /* LoginViewModel.swift in Sources */,
 				4E677C18272B88A6006E325E /* HomeViewController.swift in Sources */,
+				18F1F7032D027664007314F1 /* AccountViewModel.swift in Sources */,
 				18F1F6F72D01DB31007314F1 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

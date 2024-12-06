@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    let loginTrigger = PublishSubject<Void>()
+    
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -69,6 +71,7 @@ class LoginViewController: UIViewController {
         viewModel.loginSuccess
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.sync {
+                    self?.loginTrigger.onNext(())
                     self?.dismiss(animated: true)
                 }
             })

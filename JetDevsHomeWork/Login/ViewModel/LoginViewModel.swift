@@ -60,6 +60,9 @@ class LoginViewModel {
         .subscribe(onNext: { [weak self] response in
             self?.isLoading.onNext(false)
             if response.result == 1 {
+                if let user = response.userData?.user {
+                    self?.saveUser(user: user)
+                }
                 self?.loginSuccess.onNext(())
             } else {
                 self?.loginError.onNext(response.errorMessage)
@@ -91,5 +94,10 @@ class LoginViewModel {
     // Function to validate password: at least 6 characters
     private func isValidPassword(_ password: String) -> Bool {
         return password.count >= 6
+    }
+    
+    // Save user data to local storage
+    private func saveUser(user: User) {
+        UserDataStorage.shared.saveUser(user: user)
     }
 }
