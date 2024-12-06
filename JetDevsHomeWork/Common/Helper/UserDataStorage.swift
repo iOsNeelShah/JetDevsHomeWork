@@ -7,7 +7,14 @@
 
 import Foundation
 
-class UserDataStorage {
+protocol UserDataStorageProtocol {
+    
+    func saveUser(user: User)
+    func getUser() -> User?
+    func removeUser()
+}
+
+class UserDataStorage: UserDataStorageProtocol {
     
     static let shared = UserDataStorage()
     

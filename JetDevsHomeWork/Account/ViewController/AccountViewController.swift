@@ -19,7 +19,7 @@ class AccountViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    var viewModel = AccountViewModel()
+    var viewModel = AccountViewModel(userDataStorage: UserDataStorage.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()

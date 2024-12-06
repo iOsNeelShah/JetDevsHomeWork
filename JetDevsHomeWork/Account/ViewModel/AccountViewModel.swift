@@ -9,6 +9,8 @@ import RxSwift
 
 class AccountViewModel {
     
+    private let userDataStorage: UserDataStorageProtocol
+    
     // Observable that will emit the UserModel
     private let userSubject = BehaviorSubject<User?>(value: nil)
     
@@ -17,15 +19,19 @@ class AccountViewModel {
         return userSubject.asObservable()
     }
     
+    init(userDataStorage: UserDataStorageProtocol) {
+        self.userDataStorage = userDataStorage
+    }
+    
     // Load user data from local storage
     func loadUser() {
-        if let user = UserDataStorage.shared.getUser() {
+        if let user = userDataStorage.getUser() {
             userSubject.onNext(user)
         }
     }
     
     func logoutUser() {
-        UserDataStorage.shared.removeUser()
+        userDataStorage.removeUser()
         userSubject.onNext(nil)
     }
 }
