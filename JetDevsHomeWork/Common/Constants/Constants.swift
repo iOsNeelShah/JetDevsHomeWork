@@ -34,8 +34,10 @@ struct AppURLs {
 struct ValidationMessages {
     
     static let invalidEmailPassword = "Please enter valid email or password."
+    static let enterEmail = "Please enter email."
     static let invalidEmail = "Please enter valid email."
     static let invalidPassword = "Password must be at least 6 characters long."
+    static let enterPassword = "Please enter password."
 }
 
 struct APIErrorMessages {

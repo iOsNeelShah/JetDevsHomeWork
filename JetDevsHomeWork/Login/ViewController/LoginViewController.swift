@@ -167,18 +167,28 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtEmail {
-            guard let valid = try? viewModel.isEmailValid.value() else {
+            guard let valid = try? viewModel.isEmailValid.value(),
+                let value = try? viewModel.email.value() else {
                 return
             }
             if !valid {
-                txtEmail.leadingAssistiveLabel.text = ValidationMessages.invalidEmail
+                if value.count == 0 {
+                    txtEmail.leadingAssistiveLabel.text = ValidationMessages.enterEmail
+                } else {
+                    txtEmail.leadingAssistiveLabel.text = ValidationMessages.invalidEmail
+                }
             }
-        } else {
-            guard let valid = try? viewModel.isPasswordValid.value() else {
+        } else if textField == txtPassword {
+            guard let valid = try? viewModel.isPasswordValid.value(),
+                  let value = try? viewModel.password.value() else {
                 return
             }
             if !valid {
-                txtPassword.leadingAssistiveLabel.text = ValidationMessages.invalidPassword
+                if value.count == 0 {
+                    txtPassword.leadingAssistiveLabel.text = ValidationMessages.enterPassword
+                } else {
+                    txtPassword.leadingAssistiveLabel.text = ValidationMessages.invalidPassword
+                }
             }
         }
     }
